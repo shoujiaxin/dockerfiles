@@ -11,6 +11,7 @@ RUN apt-get update \
     && fc-cache -fsv \
     && apt-get install --no-install-recommends -y liblog-log4perl-perl liblog-dispatch-perl libyaml-tiny-perl libfile-homedir-perl libunicode-linebreak-perl \
     && rm -r install-tl-*/ \
+    && rm install-tl-unx.tar.gz \
     && rm texlive.profile \
     && apt-get autoremove \
     && apt-get autoclean
