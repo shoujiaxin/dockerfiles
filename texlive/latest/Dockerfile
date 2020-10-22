@@ -9,6 +9,7 @@ RUN apt-get update \
     && TEXMFSYSVAR=$(cat texlive.profile | grep TEXMFSYSVAR | awk '{print $2}') \
     && cp ${TEXMFSYSVAR}/fonts/conf/texlive-fontconfig.conf /etc/fonts/conf.d/09-texlive.conf \
     && fc-cache -fsv \
+    && apt-get install --no-install-recommends -y liblog-log4perl-perl liblog-dispatch-perl libyaml-tiny-perl libfile-homedir-perl libunicode-linebreak-perl \
     && rm -r install-tl-*/ \
     && rm texlive.profile \
     && apt-get autoremove \
