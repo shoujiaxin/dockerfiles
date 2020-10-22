@@ -6,7 +6,7 @@ RUN apt-get update \
     && wget --no-check-certificate https://raw.githubusercontent.com/shoujiaxin/dockerfiles/main/texlive/latest/texlive.profile \
     && tar -xzf install-tl-unx.tar.gz \
     && ./install-tl-*/install-tl -profile texlive.profile \
-    && TEXMFSYSVAR=$(cat texlive.profile | grep TEXMFSYSVAR | awk '{print $2}') \
+    && TEXMFSYSVAR=$(cat texlive.profile | grep 'TEXMFSYSVAR' | awk '{print $2}') \
     && cp ${TEXMFSYSVAR}/fonts/conf/texlive-fontconfig.conf /etc/fonts/conf.d/09-texlive.conf \
     && fc-cache -fsv \
     && apt-get install --no-install-recommends -y liblog-log4perl-perl liblog-dispatch-perl libyaml-tiny-perl libfile-homedir-perl libunicode-linebreak-perl \
